@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_detail.xml  (LANDSCAPE)
+    Dua kolom:
+    - Kiri (weight 1) : foto pantai full-height + overlay + nama + lokasi + tombol kembali
+    - Kanan (weight 1): ScrollView berisi kartu info & deskripsi
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/bg_primary">
+
+    <!-- ══════════════════════════
+         PANEL KIRI: FOTO PANTAI
+    ══════════════════════════ -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <!-- FOTO FULL HEIGHT -->
+        <ImageView
+            android:id="@+id/imgDetailFoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_image_placeholder" />
+
+        <!-- OVERLAY GELAP -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_overlay_bottom" />
+
+        <!-- NAMA, LOKASI, TOMBOL KEMBALI di bawah kiri -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvNamaPantai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Pantai"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:shadowColor="#99000000"
+                android:shadowRadius="4"
+                android:shadowDx="1"
+                android:shadowDy="1" />
+
+            <TextView
+                android:id="@+id/tvLokasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Kabupaten, Bali"
+                android:textColor="#EEffffff"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btnKembali"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="16dp"
+                android:text="← Kembali"
+                android:backgroundTint="@color/teal_dark"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- ══════════════════════════
+         PANEL KANAN: INFO + DESKRIPSI
+    ══════════════════════════ -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <!-- Kartu Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp">
+
+                <!-- Harga -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingBottom="10dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="🎫  Harga Tiket" android:textColor="@color/gray_dark" android:textSize="13sp" />
+                    <TextView android:id="@+id/tvHarga" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rp 0" android:textColor="@color/teal_primary" android:textStyle="bold" android:textSize="14sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+
+                <!-- Rating -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="10dp" android:paddingBottom="10dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="⭐  Rating" android:textColor="@color/gray_dark" android:textSize="13sp" />
+                    <TextView android:id="@+id/tvRating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0 / 5.0" android:textColor="@color/teal_primary" android:textStyle="bold" android:textSize="14sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+
+                <!-- Jam Buka -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="10dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="🕐  Jam Buka" android:textColor="@color/gray_dark" android:textSize="13sp" />
+                    <TextView android:id="@+id/tvJamBuka" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="06.00 – 18.00" android:textColor="@color/teal_primary" android:textStyle="bold" android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Kartu Deskripsi -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tentang Pantai Ini"
+                    android:textColor="@color/teal_dark"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvDeskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi pantai..."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
