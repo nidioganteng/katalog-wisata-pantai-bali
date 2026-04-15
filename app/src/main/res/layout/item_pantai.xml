@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_pantai.xml
+    Layout satu baris di ListView halaman utama.
+    Struktur: [Foto thumbnail] | [Nama, Lokasi, Harga] | [Rating]
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@color/white"
+    android:gravity="center_vertical">
+
+    <!-- FOTO THUMBNAIL KOTAK KECIL (80x80dp, sudut membulat) -->
+    <ImageView
+        android:id="@+id/imgThumbnail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_image_placeholder"
+        android:background="@drawable/bg_image_placeholder"
+        android:clipToOutline="true"
+        android:layout_marginEnd="12dp" />
+
+    <!-- INFO PANTAI: Nama, Lokasi, Harga -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvItemNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Pantai"
+            android:textColor="@color/teal_dark"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvItemLokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📍 Kabupaten"
+            android:textColor="@color/gray_dark"
+            android:textSize="13sp"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:id="@+id/tvItemHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎫 Gratis"
+            android:textColor="@color/teal_primary"
+            android:textSize="12sp"
+            android:layout_marginTop="3dp" />
+    </LinearLayout>
+
+    <!-- RATING di kanan -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginStart="8dp">
+
+        <TextView
+            android:id="@+id/tvItemRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.5"
+            android:textColor="@color/teal_dark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⭐"
+            android:textSize="13sp"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>
