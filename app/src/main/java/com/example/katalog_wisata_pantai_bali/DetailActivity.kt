@@ -28,11 +28,18 @@ class DetailActivity : AppCompatActivity() {
         tvDeskripsi   = findViewById(R.id.tvDeskripsi)
         btnKembali    = findViewById(R.id.btnKembali)
 
+        // ── TERIMA DATA DARI INTENT (Minggu 2) ────────────────────────────────
+        val nama = intent.getStringExtra("NAMA") ?: "-"
+        tvNamaPantai.text = nama
+
+        // TODO Minggu 3: terima dan tampilkan data lengkap (lokasi, harga, rating,
+        //                jam buka, deskripsi, foto) setelah Array data dibuat
+
+        // ── TOMBOL KEMBALI ────────────────────────────────────────────────────
         btnKembali.setOnClickListener {
             finish()
         }
 
-        // TODO Minggu 2: terima data dari Intent, isi semua TextView & ImageView
-        // TODO Minggu 4: tambahkan Logcat dengan tag NIM
+        // TODO Minggu 4: tambahkan Logcat dengan tag NIM 42430032
     }
 }
