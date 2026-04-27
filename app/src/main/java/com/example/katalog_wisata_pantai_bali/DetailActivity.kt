@@ -1,5 +1,6 @@
 package com.example.katalog_wisata_pantai_bali
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -28,12 +29,24 @@ class DetailActivity : AppCompatActivity() {
         tvDeskripsi   = findViewById(R.id.tvDeskripsi)
         btnKembali    = findViewById(R.id.btnKembali)
 
-        // ── TERIMA DATA DARI INTENT (Minggu 2) ────────────────────────────────
-        val nama = intent.getStringExtra("NAMA") ?: "-"
-        tvNamaPantai.text = nama
+        // ── TERIMA OBJECT PANTAI DARI INTENT ──────────────────────────────────
+        val pantai = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra("PANTAI", Pantai::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getSerializableExtra("PANTAI") as? Pantai
+        }
 
-        // TODO Minggu 3: terima dan tampilkan data lengkap (lokasi, harga, rating,
-        //                jam buka, deskripsi, foto) setelah Array data dibuat
+        // ── TAMPILKAN DATA KE SEMUA VIEW ──────────────────────────────────────
+        if (pantai != null) {
+            imgDetailFoto.setImageResource(pantai.fotoResId)
+            tvNamaPantai.text = pantai.nama
+            tvLokasi.text     = "📍 ${pantai.lokasi}"
+            tvHarga.text      = pantai.harga
+            tvRating.text     = "${pantai.rating} / 5.0"
+            tvJamBuka.text    = pantai.jamBuka
+            tvDeskripsi.text  = pantai.deskripsi
+        }
 
         // ── TOMBOL KEMBALI ────────────────────────────────────────────────────
         btnKembali.setOnClickListener {
